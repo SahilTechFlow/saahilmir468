@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelHub - Your Travel Planning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">✈️ TravelHub</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#bookings">My Bookings</a></li>
+                <li><a href="#planning">Plan Trip</a></li>
+                <li><button class="btn-login" onclick="openLoginModal()">Login</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Explore the World</h1>
+            <p>Book flights, hotels, and activities all in one place</p>
+            <button class="btn-primary" onclick="scrollToDestinations()">Start Planning</button>
+        </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section class="search-section">
+        <div class="container">
+            <h2>Find Your Perfect Trip</h2>
+            <div class="search-form">
+                <input type="text" id="searchInput" placeholder="Search destinations...">
+                <select id="filterCategory">
+                    <option value="">All Categories</option>
+                    <option value="beach">Beach</option>
+                    <option value="mountain">Mountain</option>
+                    <option value="city">City</option>
+                    <option value="adventure">Adventure</option>
+                </select>
+                <button class="btn-secondary" onclick="filterDestinations()">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="destinations">
+        <div class="container">
+            <h2>Popular Destinations</h2>
+            <div class="destinations-grid" id="destinationsGrid">
+                <!-- Destinations will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="bookings" class="bookings">
+        <div class="container">
+            <h2>My Bookings</h2>
+            <div class="bookings-list" id="bookingsList">
+                <p>No bookings yet. <a href="#destinations">Book your first trip!</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trip Planning Section -->
+    <section id="planning" class="planning">
+        <div class="container">
+            <h2>Plan Your Trip</h2>
+            <div class="planning-form">
+                <h3>Create a New Trip</h3>
+                <form onsubmit="createTrip(event)">
+                    <input type="text" id="tripName" placeholder="Trip Name" required>
+                    <input type="date" id="startDate" placeholder="Start Date" required>
+                    <input type="date" id="endDate" placeholder="End Date" required>
+                    <input type="number" id="budget" placeholder="Budget ($)" required>
+                    <textarea id="notes" placeholder="Trip Notes" rows="4"></textarea>
+                    <button type="submit" class="btn-primary">Create Trip</button>
+                </form>
+            </div>
+            <div class="trips-list" id="tripsList">
+                <!-- Trips will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 TravelHub. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Login to TravelHub</h2>
+            <form onsubmit="handleLogin(event)">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#signup" onclick="openSignupModal()">Sign up here</a></p>
+        </div>
+    </div>
+
+    <!-- Destination Detail Modal -->
+    <div id="destinationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDestinationModal()">&times;</span>
+            <div id="destinationDetail">
+                <!-- Destination details will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
